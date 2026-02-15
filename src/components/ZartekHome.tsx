@@ -8,7 +8,11 @@ import Methodology from './Methodology';
 import WhyZartek from './WhyZartek';
 import Footer from './Footer';
 
-const ZartekHome: React.FC = () => {
+interface ZartekHomeProps {
+    onViewChange: (view: 'home' | 'industries') => void;
+}
+
+const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
     return (
         <div className="relative min-h-screen bg-black overflow-hidden text-white font-sans selection:bg-[#00eeff] selection:text-black">
 
@@ -36,6 +40,12 @@ const ZartekHome: React.FC = () => {
                 </motion.div>
 
                 <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                    <button
+                        onClick={() => onViewChange('industries')}
+                        className="hover:text-white transition-colors cursor-pointer"
+                    >
+                        Industries
+                    </button>
                     {['Solutions', 'Case Studies', 'Methodology', 'Insights'].map((item, index) => (
                         <motion.a
                             key={item}
