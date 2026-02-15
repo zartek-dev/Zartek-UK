@@ -1,11 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-interface IndustriesProps {
-    onBack?: () => void;
-}
+interface IndustriesProps { }
 
-const Industries: React.FC<IndustriesProps> = ({ onBack }) => {
+const Industries: React.FC<IndustriesProps> = () => {
     const industries = [
         {
             title: "FinTech",
@@ -65,12 +63,7 @@ const Industries: React.FC<IndustriesProps> = ({ onBack }) => {
                     animate={{ opacity: 1, y: 0 }}
                     className="mb-20"
                 >
-                    <button
-                        onClick={onBack}
-                        className="flex items-center gap-2 text-black text-sm font-bold uppercase tracking-widest mb-8 hover:gap-4 transition-all cursor-pointer"
-                    >
-                        <span>←</span> Back to Home
-                    </button>
+
                     <h1 className="text-5xl md:text-8xl font-bold font-display tracking-tight leading-tight mb-6">
                         Architecting the <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500">Intelligence Era</span>

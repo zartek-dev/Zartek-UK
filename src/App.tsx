@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import Navbar from './components/Navbar'
 import ZartekHome from './components/ZartekHome'
 import Industries from './components/Industries'
 import About from './components/About'
@@ -12,11 +13,14 @@ function App() {
     }, [currentView])
 
     return (
-        <>
-            {currentView === 'home' && <ZartekHome onViewChange={setCurrentView} />}
-            {currentView === 'industries' && <Industries onBack={() => setCurrentView('home')} />}
-            {currentView === 'about' && <About onBack={() => setCurrentView('home')} />}
-        </>
+        <div className="bg-black min-h-screen">
+            <Navbar currentView={currentView} onViewChange={setCurrentView} />
+            <main>
+                {currentView === 'home' && <ZartekHome />}
+                {currentView === 'industries' && <Industries />}
+                {currentView === 'about' && <About />}
+            </main>
+        </div>
     )
 }
 

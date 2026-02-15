@@ -1,11 +1,9 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-interface AboutProps {
-    onBack: () => void;
-}
+interface AboutProps { }
 
-const About: React.FC<AboutProps> = ({ onBack }) => {
+const About: React.FC<AboutProps> = () => {
     const values = [
         {
             title: "Strategy First",
@@ -51,18 +49,7 @@ const About: React.FC<AboutProps> = ({ onBack }) => {
                 className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 blur-[150px] rounded-full pointer-events-none"
             />
 
-            {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md bg-black/20 border-b border-white/5">
-                <div className="text-2xl font-bold tracking-tighter font-display">
-                    ZARTEK <span className="text-[#00eeff]">UK</span>
-                </div>
-                <button
-                    onClick={onBack}
-                    className="px-6 py-2 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-colors cursor-pointer"
-                >
-                    Back to Home
-                </button>
-            </nav>
+
 
             <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
                 <div className="max-w-7xl mx-auto">
@@ -131,7 +118,9 @@ const About: React.FC<AboutProps> = ({ onBack }) => {
                                 Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is here to guide you through the AI landscape.
                             </p>
                             <button
-                                onClick={onBack}
+                                onClick={() => {
+                                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                                }}
                                 className="px-10 py-4 bg-[#00eeff] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] cursor-pointer"
                             >
                                 Start Your AI Journey
