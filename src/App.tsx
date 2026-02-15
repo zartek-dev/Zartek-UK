@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import ZartekHome from './components/ZartekHome'
 import Industries from './components/Industries'
+import Services from './components/Services'
 import About from './components/About'
 
 function App() {
-    const [currentView, setCurrentView] = useState<'home' | 'industries' | 'about'>('home')
+    const [currentView, setCurrentView] = useState<'home' | 'industries' | 'services' | 'about'>('home')
 
     // Scroll to top on view change
     useEffect(() => {
@@ -18,6 +19,7 @@ function App() {
             <main>
                 {currentView === 'home' && <ZartekHome />}
                 {currentView === 'industries' && <Industries />}
+                {currentView === 'services' && <Services />}
                 {currentView === 'about' && <About />}
             </main>
         </div>
