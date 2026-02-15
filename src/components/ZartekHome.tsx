@@ -14,35 +14,35 @@ interface ZartekHomeProps {
 
 const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
     return (
-        <div className="relative min-h-screen bg-black overflow-hidden text-white font-sans selection:bg-[#00eeff] selection:text-black">
+        <div className="relative min-h-screen bg-white overflow-hidden text-black font-sans selection:bg-[#00eeff] selection:text-black">
 
-            {/* Background Blurs */}
+            {/* Background Blurs - Adjusted for Light Mode */}
             <motion.div
-                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+                animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00eeff]/10 blur-[150px] rounded-full pointer-events-none mix-blend-screen"
+                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00eeff]/20 blur-[150px] rounded-full pointer-events-none mix-blend-multiply"
             />
             <motion.div
-                animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }}
+                animate={{ opacity: [0.05, 0.15, 0.05], scale: [1, 1.2, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-900/20 blur-[150px] rounded-full pointer-events-none mix-blend-screen"
+                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-200/30 blur-[150px] rounded-full pointer-events-none mix-blend-multiply"
             />
 
             {/* Navigation */}
-            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md bg-black/10">
+            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md bg-white/50 border-b border-gray-100">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-2xl font-bold tracking-tighter font-display"
+                    className="text-2xl font-bold tracking-tighter font-display text-black"
                 >
                     ZARTEK <span className="text-[#00eeff]">UK</span>
                 </motion.div>
 
-                <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+                <div className="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-500">
                     <button
                         onClick={() => onViewChange('industries')}
-                        className="hover:text-white transition-colors cursor-pointer"
+                        className="hover:text-black transition-colors cursor-pointer"
                     >
                         Industries
                     </button>
@@ -53,7 +53,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 * index, duration: 0.5 }}
-                            className="hover:text-white transition-colors"
+                            className="hover:text-black transition-colors"
                         >
                             {item}
                         </motion.a>
@@ -64,7 +64,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="px-6 py-2.5 bg-[#00eeff] text-black rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
+                    className="px-6 py-2.5 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
                 >
                     Contact Us
                 </motion.button>
@@ -81,8 +81,8 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                 <Footer />
             </div>
 
-            {/* Grid Pattern Overlay */}
-            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 pointer-events-none mix-blend-overlay"></div>
+            {/* Grid Pattern Overlay - Subtler for Light Mode */}
+            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
 
         </div>
     );

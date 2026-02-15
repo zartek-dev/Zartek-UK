@@ -18,7 +18,7 @@ const WhyZartek: React.FC = () => {
     ];
 
     return (
-        <section className="relative z-10 py-32 px-6 md:px-12 bg-gradient-to-b from-transparent to-[#00eeff]/5">
+        <section className="relative z-10 py-32 px-6 md:px-12 bg-white">
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
                     <motion.div
@@ -26,11 +26,11 @@ const WhyZartek: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-6xl font-bold font-display leading-tight mb-8">
+                        <h2 className="text-4xl md:text-6xl font-bold font-display leading-tight mb-8 text-black">
                             Why Choose <br />
-                            <span className="text-[#00eeff]">Zartek UK?</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">Zartek UK?</span>
                         </h2>
-                        <p className="text-xl text-gray-400 font-light leading-relaxed mb-10">
+                        <p className="text-xl text-gray-600 font-light leading-relaxed mb-10">
                             We aren't just here to build a prototype. We're here to be your long-term AI partner,
                             ensuring your business stays ahead of the curve as technology evolves.
                         </p>
@@ -44,16 +44,16 @@ const WhyZartek: React.FC = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                                className="flex gap-6 p-8 rounded-3xl bg-white/5 border border-white/10"
+                                className="flex gap-6 p-8 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md transition-all"
                             >
-                                <div className="shrink-0 w-12 h-12 rounded-xl bg-[#00eeff]/10 border border-[#00eeff]/30 flex items-center justify-center text-[#00eeff]">
+                                <div className="shrink-0 w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-black">
                                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold mb-2">{reason.title}</h3>
-                                    <p className="text-gray-400 leading-relaxed text-sm">{reason.desc}</p>
+                                    <h3 className="text-xl font-bold mb-2 text-black">{reason.title}</h3>
+                                    <p className="text-gray-500 leading-relaxed text-sm">{reason.desc}</p>
                                 </div>
                             </motion.div>
                         ))}

@@ -26,7 +26,7 @@ const Solutions: React.FC = () => {
     ];
 
     return (
-        <section className="relative z-10 py-32 px-6 md:px-12">
+        <section className="relative z-10 py-32 px-6 md:px-12 bg-white">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -34,10 +34,9 @@ const Solutions: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold font-display mb-6">Enterprise AI Solutions</h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                        Specialized services for the modern digital landscape,
-                        bridging the gap between theory and real-world ROI.
+                    <h2 className="text-4xl md:text-6xl font-bold font-display mb-6 text-black">Enterprise AI Solutions</h2>
+                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                        Specialized services architected for the modern digital landscape and high-performance demands.
                     </p>
                 </motion.div>
 
@@ -49,16 +48,16 @@ const Solutions: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.6 }}
-                            className="p-10 rounded-3xl bg-gradient-to-br from-white/10 to-transparent border border-white/10 hover:border-[#00eeff]/50 transition-all group flex flex-col justify-between"
+                            className="p-10 rounded-3xl bg-gray-50 border border-gray-100 hover:border-[#00eeff]/50 transition-all group flex flex-col justify-between shadow-sm hover:shadow-md"
                         >
                             <div>
-                                <span className="inline-block px-3 py-1 rounded-full bg-[#00eeff]/10 text-[#00eeff] text-[10px] font-bold uppercase tracking-wider mb-6">
+                                <span className="inline-block px-3 py-1 rounded-full bg-black/5 text-gray-600 text-[10px] font-bold uppercase tracking-wider mb-6">
                                     {item.tag}
                                 </span>
-                                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                                <p className="text-gray-400 leading-relaxed mb-8">{item.desc}</p>
+                                <h3 className="text-2xl font-bold mb-4 text-black">{item.title}</h3>
+                                <p className="text-gray-500 leading-relaxed mb-8">{item.desc}</p>
                             </div>
-                            <div className="flex items-center gap-2 text-[#00eeff] font-bold text-sm tracking-tight group-hover:gap-4 transition-all opacity-0 group-hover:opacity-100">
+                            <div className="flex items-center gap-2 text-black font-bold text-sm tracking-tight group-hover:gap-4 transition-all opacity-0 group-hover:opacity-100">
                                 LEARN MORE <span>→</span>
                             </div>
                         </motion.div>
