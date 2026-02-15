@@ -6,6 +6,9 @@ import Solutions from './Solutions';
 import CaseStudy from './CaseStudy';
 import Methodology from './Methodology';
 import WhyZartek from './WhyZartek';
+import About from './About';
+import Team from './Team';
+import Contact from './Contact';
 import Footer from './Footer';
 
 interface ZartekHomeProps {
@@ -46,7 +49,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                     >
                         Industries
                     </button>
-                    {['Solutions', 'Case Studies', 'Methodology', 'Insights'].map((item, index) => (
+                    {['Solutions', 'Case Studies', 'Methodology', 'About', 'Contact'].map((item, index) => (
                         <motion.a
                             key={item}
                             href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -65,6 +68,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
                     className="px-6 py-2.5 bg-black text-white rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                     Contact Us
                 </motion.button>
@@ -75,9 +79,12 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                 <Hero />
                 <div id="the-shift"><TheShift /></div>
                 <div id="solutions"><Solutions /></div>
-                <CaseStudy />
+                <div id="case-studies"><CaseStudy /></div>
                 <div id="methodology"><Methodology /></div>
                 <WhyZartek />
+                <About />
+                <div id="about"><Team /></div>
+                <Contact />
                 <Footer />
             </div>
 
