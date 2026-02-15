@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 interface NavbarProps {
-    currentView: 'home' | 'industries' | 'services' | 'about';
-    onViewChange: (view: 'home' | 'industries' | 'services' | 'about') => void;
+    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about';
+    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about') => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
@@ -11,11 +11,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
         { name: 'Home', view: 'home' as const },
         { name: 'Services', view: 'services' as const },
         { name: 'Industries', view: 'industries' as const },
-        { name: 'Case Studies', href: '#case-studies' },
+        { name: 'Success Stories', view: 'success-stories' as const },
         { name: 'About Us', view: 'about' as const },
     ];
 
-    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'about'; href?: string }) => {
+    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about'; href?: string }) => {
         if (item.view) {
             onViewChange(item.view);
             window.scrollTo({ top: 0, behavior: 'smooth' });
