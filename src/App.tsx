@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import ZartekHome from './components/ZartekHome'
 import Industries from './components/Industries'
+import About from './components/About'
 
 function App() {
-    const [currentView, setCurrentView] = useState<'home' | 'industries'>('home')
+    const [currentView, setCurrentView] = useState<'home' | 'industries' | 'about'>('home')
 
     // Scroll to top on view change
     useEffect(() => {
@@ -12,11 +13,9 @@ function App() {
 
     return (
         <>
-            {currentView === 'home' ? (
-                <ZartekHome onViewChange={setCurrentView} />
-            ) : (
-                <Industries onBack={() => setCurrentView('home')} />
-            )}
+            {currentView === 'home' && <ZartekHome onViewChange={setCurrentView} />}
+            {currentView === 'industries' && <Industries onBack={() => setCurrentView('home')} />}
+            {currentView === 'about' && <About onBack={() => setCurrentView('home')} />}
         </>
     )
 }

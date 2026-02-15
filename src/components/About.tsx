@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-const About: React.FC = () => {
+interface AboutProps {
+    onBack: () => void;
+}
+
+const About: React.FC<AboutProps> = ({ onBack }) => {
     const values = [
         {
             title: "Strategy First",
@@ -34,17 +38,68 @@ const About: React.FC = () => {
     ];
 
     return (
-        <section className="relative z-10 py-32 px-6 md:px-12 bg-[#f8fbff]/50">
-            <div className="max-w-7xl mx-auto">
-                {/* Values Sub-section */}
-                <div className="mb-32">
-                    <div className="text-center mb-16">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]">Why Choose Zartek</span>
-                        <h2 className="text-4xl md:text-5xl font-bold font-display mt-4 text-black">Built for Business Excellence</h2>
-                        <p className="text-gray-500 mt-6 max-w-2xl mx-auto">We combine local expertise with global innovation to deliver AI solutions that drive measurable ROI.</p>
+        <div className="relative min-h-screen bg-black text-white selection:bg-[#00eeff] selection:text-black overflow-hidden font-sans">
+            {/* Background Blurs */}
+            <motion.div
+                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00eeff]/20 blur-[150px] rounded-full pointer-events-none"
+            />
+            <motion.div
+                animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 blur-[150px] rounded-full pointer-events-none"
+            />
+
+            {/* Navigation */}
+            <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-6 md:px-12 backdrop-blur-md bg-black/20 border-b border-white/5">
+                <div className="text-2xl font-bold tracking-tighter font-display">
+                    ZARTEK <span className="text-[#00eeff]">UK</span>
+                </div>
+                <button
+                    onClick={onBack}
+                    className="px-6 py-2 border border-white/10 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-colors cursor-pointer"
+                >
+                    Back to Home
+                </button>
+            </nav>
+
+            <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
+                <div className="max-w-7xl mx-auto">
+                    {/* Hero Section */}
+                    <div className="mb-32">
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]"
+                        >
+                            About Zartek UK
+                        </motion.span>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-5xl md:text-7xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight"
+                        >
+                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eeff] to-purple-400">London Business Heritage</span>
+                        </motion.h1>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="max-w-3xl space-y-6 text-xl text-gray-400 font-light leading-relaxed"
+                        >
+                            <p>
+                                Founded by a collective of ex-FAANG engineers and London-based strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
+                            </p>
+                            <p>
+                                We aren't just a dev shop. We are your local partners in digital transformation. From our headquarters in Shoreditch, we work intimately with FTSE 100 companies and high-growth startups to deploy AI that is ethical, explainable, and exceptionally powerful.
+                            </p>
+                        </motion.div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* Values Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32">
                         {values.map((v, i) => (
                             <motion.div
                                 key={i}
@@ -52,89 +107,46 @@ const About: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-10 rounded-[2.5rem] bg-white border border-blue-50 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all group"
+                                className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm hover:border-[#00eeff]/30 transition-all group"
                             >
-                                <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-8 shadow-lg shadow-blue-200 group-hover:scale-110 transition-transform">
+                                <div className="w-12 h-12 rounded-2xl bg-[#00eeff]/20 text-[#00eeff] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,238,255,0.2)]">
                                     {v.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4 text-[#003366]">{v.title}</h3>
-                                <p className="text-gray-500 leading-relaxed text-sm">{v.desc}</p>
+                                <h3 className="text-2xl font-bold mb-4">{v.title}</h3>
+                                <p className="text-gray-400 leading-relaxed">{v.desc}</p>
                             </motion.div>
                         ))}
                     </div>
-                </div>
 
-                {/* About Mission Sub-section */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center border-t border-blue-50 pt-32">
+                    {/* Mission Card */}
                     <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]">About Zartek UK</span>
-                        <h2 className="text-4xl md:text-6xl font-bold font-display leading-tight mt-6 mb-8 text-black">
-                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-400">London Business Heritage</span>
-                        </h2>
-                        <div className="space-y-6 text-lg text-gray-600 font-light leading-relaxed">
-                            <p>
-                                Founded by a collective of ex-FAANG engineers and London-based strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
-                            </p>
-                            <p>
-                                We aren't just a dev shop. We are your local partners in digital transformation. From our headquarters in Shoreditch, we work intimately with FTSE 100 companies and high-growth startups to deploy AI that is ethical, explainable, and exceptionally powerful.
-                            </p>
-                        </div>
-
-                        <div className="mt-12 flex items-center gap-6">
-                            <div className="flex -space-x-3">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200" />
-                                ))}
-                            </div>
-                            <button className="text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-2 group cursor-pointer">
-                                Learn more about our team <span className="group-hover:translate-x-2 transition-transform">→</span>
-                            </button>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="relative"
+                        className="relative p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-[#00eeff]/5 to-purple-500/5 border border-white/5 overflow-hidden group"
                     >
-                        <div className="aspect-square rounded-[3rem] bg-gradient-to-br from-gray-900 to-black overflow-hidden shadow-2xl border border-white/10 group">
-                            {/* 3D-like Visualization Placeholder Overlay */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-64 h-64 rounded-full border border-blue-500/30 animate-[ping_3s_linear_infinite]" />
-                                <div className="absolute w-48 h-48 rounded-full border border-cyan-400/50 animate-[pulse_2s_linear_infinite]" />
-                                <div className="absolute w-32 h-32 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 blur-3xl opacity-20" />
-                                <div className="z-10 text-center">
-                                    <div className="text-cyan-400 text-xs font-bold tracking-[.3em] uppercase mb-2">Neural Network</div>
-                                    <div className="text-white text-5xl font-black opacity-10">ZRTK</div>
-                                </div>
-                            </div>
-
-                            {/* Project Label Overlay */}
-                            <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10">
-                                <div className="flex justify-between items-center">
-                                    <div>
-                                        <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">Current Project</div>
-                                        <div className="text-white font-bold">FinTech Risk Analysis Engine</div>
-                                    </div>
-                                    <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
-                                        <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="relative z-10 text-center max-w-3xl mx-auto">
+                            <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Build the Future?</h2>
+                            <p className="text-gray-400 text-lg mb-10">
+                                Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is here to guide you through the AI landscape.
+                            </p>
+                            <button
+                                onClick={onBack}
+                                className="px-10 py-4 bg-[#00eeff] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] cursor-pointer"
+                            >
+                                Start Your AI Journey
+                            </button>
                         </div>
-
-                        {/* Decorative floating elements */}
-                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-500/10 blur-[80px]" />
-                        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-400/10 blur-[80px]" />
+                        {/* Decorative orbs in the card */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00eeff]/10 blur-[100px] -mr-32 -mt-32" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 blur-[100px] -ml-32 -mb-32" />
                     </motion.div>
                 </div>
-            </div>
-        </section>
+            </main>
+
+            {/* Grain Overlay */}
+            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay"></div>
+        </div>
     );
 };
 

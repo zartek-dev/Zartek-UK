@@ -6,13 +6,11 @@ import Solutions from './Solutions';
 import CaseStudy from './CaseStudy';
 import Methodology from './Methodology';
 import WhyZartek from './WhyZartek';
-import About from './About';
-import Team from './Team';
 import Contact from './Contact';
 import Footer from './Footer';
 
 interface ZartekHomeProps {
-    onViewChange: (view: 'home' | 'industries') => void;
+    onViewChange: (view: 'home' | 'industries' | 'about') => void;
 }
 
 const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
@@ -49,7 +47,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                     >
                         Industries
                     </button>
-                    {['Solutions', 'Case Studies', 'Methodology', 'About', 'Contact'].map((item, index) => (
+                    {['Solutions', 'Case Studies', 'Methodology'].map((item, index) => (
                         <motion.a
                             key={item}
                             href={`#${item.toLowerCase().replace(' ', '-')}`}
@@ -61,6 +59,21 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                             {item}
                         </motion.a>
                     ))}
+                    <button
+                        onClick={() => onViewChange('about')}
+                        className="hover:text-black transition-colors cursor-pointer"
+                    >
+                        About
+                    </button>
+                    <motion.a
+                        href="#contact"
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4, duration: 0.5 }}
+                        className="hover:text-black transition-colors"
+                    >
+                        Contact
+                    </motion.a>
                 </div>
 
                 <motion.button
@@ -82,8 +95,6 @@ const ZartekHome: React.FC<ZartekHomeProps> = ({ onViewChange }) => {
                 <div id="case-studies"><CaseStudy /></div>
                 <div id="methodology"><Methodology /></div>
                 <WhyZartek />
-                <About />
-                <div id="about"><Team /></div>
                 <Contact />
                 <Footer />
             </div>
