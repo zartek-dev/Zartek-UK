@@ -2,7 +2,11 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 
-const SuccessStories: React.FC = () => {
+interface SuccessStoriesProps {
+    onCaseStudyClick?: (slug: string) => void;
+}
+
+const SuccessStories: React.FC<SuccessStoriesProps> = ({ onCaseStudyClick }) => {
     const stories = [
         {
             client: "SurveySparrow",
@@ -10,7 +14,8 @@ const SuccessStories: React.FC = () => {
             outcome: "40% Higher Completion",
             desc: "Optimized mobile experience and neural routing for feedback loops, resulting in a significant increase in user engagement and completion rates.",
             stat: "40%",
-            label: "Higher Completion"
+            label: "Higher Completion",
+            slug: "surveysparrow"
         },
         {
             client: "FinTrack AI",
@@ -18,7 +23,8 @@ const SuccessStories: React.FC = () => {
             outcome: "99.9% Fraud Accuracy",
             desc: "Implementation of real-time anomaly detection layers that identify fraudulent patterns before transaction finalization.",
             stat: "99.9%",
-            label: "Detection Rate"
+            label: "Detection Rate",
+            slug: "fintrack"
         },
         {
             client: "HealthSync",
@@ -26,7 +32,8 @@ const SuccessStories: React.FC = () => {
             outcome: "2.4x Faster Triage",
             desc: "Automated patient data processing and predictive diagnostics triage, allowing medical staff to focus on critical cases instantly.",
             stat: "2.4x",
-            label: "Faster Triage"
+            label: "Faster Triage",
+            slug: "healthsync"
         }
     ];
 
@@ -97,7 +104,12 @@ const SuccessStories: React.FC = () => {
                                     {story.desc}
                                 </p>
                                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                    <span className="text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer">FULL CASE STUDY →</span>
+                                    <button
+                                        onClick={() => onCaseStudyClick?.(story.slug)}
+                                        className="text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
+                                    >
+                                        FULL CASE STUDY →
+                                    </button>
                                 </div>
                             </div>
                         </motion.div>
