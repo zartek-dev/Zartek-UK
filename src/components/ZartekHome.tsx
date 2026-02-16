@@ -7,7 +7,6 @@ import CaseStudy from './CaseStudy';
 import Methodology from './Methodology';
 import WhyZartek from './WhyZartek';
 import Contact from './Contact';
-import Footer from './Footer';
 
 interface ZartekHomeProps { }
 
@@ -36,7 +35,6 @@ const ZartekHome: React.FC<ZartekHomeProps> = () => {
                 <div id="methodology"><Methodology /></div>
                 <WhyZartek />
                 <Contact />
-                <Footer />
             </div>
 
             {/* Grain Overlay */}

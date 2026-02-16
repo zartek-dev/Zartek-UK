@@ -2,68 +2,122 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 const Footer: React.FC = () => {
+    const navLinks = [
+        { name: 'Home', href: '#' },
+        { name: 'Services', href: '#' },
+        { name: 'Case Studies', href: '#' },
+        { name: 'Success Stories', href: '#' },
+        { name: 'About Us', href: '#' },
+    ];
+
+    const industryLinks = [
+        { name: 'FinTech', href: '#' },
+        { name: 'Healthcare', href: '#' },
+        { name: 'Retail', href: '#' },
+        { name: 'Legal', href: '#' },
+        { name: 'Logistics', href: '#' },
+        { name: 'Manufacturing', href: '#' },
+    ];
+
+    const socialLinks = [
+        { name: 'LinkedIn', href: '#' },
+        { name: 'Twitter', href: '#' },
+        { name: 'Clutch', href: '#' },
+    ];
+
     return (
-        <footer className="relative z-10 py-32 px-6 md:px-12 border-t border-slate-100 bg-white">
+        <motion.footer
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white border-t border-gray-100 pt-20 pb-10 px-6 md:px-12 font-sans text-slate-900"
+        >
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col items-center text-center mb-24">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-4xl md:text-7xl font-bold font-display mb-10 text-slate-900"
-                    >
-                        Ready To Build The <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500">Future Of Your Business?</span>
-                    </motion.h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <button className="px-10 py-5 bg-slate-900 text-white font-bold rounded-xl text-lg hover:scale-105 transition-transform shadow-lg cursor-pointer">
-                            Schedule A Consultation
-                        </button>
-                    </motion.div>
+                    {/* Col 1: Brand */}
+                    <div className="space-y-6">
+                        <div className="text-2xl font-bold tracking-tighter font-display">
+                            ZARTEK <span className="text-black">UK</span>
+                        </div>
+                        <p className="text-sm text-slate-500 leading-relaxed font-light max-w-xs">
+                            Enterprise Futurist: Building AI that scales with enterprise ambition. London-based, globally focused.
+                        </p>
+                        <div className="flex gap-4">
+                            {socialLinks.map((social) => (
+                                <a
+                                    key={social.name}
+                                    href={social.href}
+                                    className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center text-slate-400 hover:text-black hover:border-black transition-all"
+                                >
+                                    <span className="sr-only">{social.name}</span>
+                                    {/* Placeholder for icons - using dots for now but styled properly */}
+                                    <div className="w-1.5 h-1.5 rounded-full bg-current" />
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Col 2: Navigation */}
+                    <div>
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 font-display">Navigation</h4>
+                        <ul className="space-y-4">
+                            {navLinks.map((link) => (
+                                <li key={link.name}>
+                                    <a href={link.href} className="text-sm text-slate-500 hover:text-black transition-colors font-sans">
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Col 3: Industries */}
+                    <div>
+                        <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-8 font-display">Industries</h4>
+                        <ul className="space-y-4">
+                            {industryLinks.map((link) => (
+                                <li key={link.name}>
+                                    <a href={link.href} className="text-sm text-slate-500 hover:text-black transition-colors font-sans">
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Col 4: Contact */}
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-6 font-display">Contact</h4>
+                            <p className="text-sm text-slate-500 leading-relaxed font-light">
+                                80-82 Curtain Rd, Shoreditch,<br />
+                                London EC2A 3AF
+                            </p>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <button className="w-full py-4 bg-black text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform cursor-pointer shadow-lg shadow-black/5">
+                                Book A Consultation
+                            </button>
+                            <a href="mailto:hello@zartek.co.uk" className="text-sm font-medium text-slate-900 hover:underline underline-offset-4 decoration-slate-200">
+                                hello@zartek.co.uk
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm text-slate-500">
-                    <div className="col-span-2 md:col-span-1">
-                        <div className="text-xl font-bold text-slate-900 mb-6 tracking-tighter">ZARTEK <span className="text-black">UK</span></div>
-                        <p className="leading-relaxed">Building AI that scales with enterprise ambition. London-based, globally focused.</p>
+                {/* Legal Bar */}
+                <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-[10px] text-slate-400 font-medium tracking-tight">
+                        © 2026 ZARTEK UK. ALL RIGHTS RESERVED.
+                    </p>
+                    <div className="flex gap-8">
+                        <a href="#" className="text-[10px] text-slate-400 hover:text-black font-bold uppercase tracking-widest transition-colors">Privacy Policy</a>
+                        <a href="#" className="text-[10px] text-slate-400 hover:text-black font-bold uppercase tracking-widest transition-colors">Terms of Service</a>
                     </div>
-                    <div>
-                        <h4 className="text-slate-900 font-bold mb-6">Company</h4>
-                        <ul className="grid gap-3">
-                            <li><a href="#" className="hover:text-black transition-colors">About Us</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Insights</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Careers</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-slate-900 font-bold mb-6">Legal</h4>
-                        <ul className="grid gap-3">
-                            <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Terms of Service</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Cookie Policy</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-slate-900 font-bold mb-6">Connect</h4>
-                        <ul className="grid gap-3">
-                            <li><a href="#" className="hover:text-black transition-colors">LinkedIn</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Twitter (X)</a></li>
-                            <li><a href="#" className="hover:text-black transition-colors">Clutch</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="mt-24 pt-8 border-t border-slate-100 text-center text-xs text-slate-400">
-                    © {new Date().getFullYear()} Zartek UK. All rights reserved.
                 </div>
             </div>
-        </footer>
+        </motion.footer>
     );
 };
 

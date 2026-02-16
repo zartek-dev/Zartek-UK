@@ -6,6 +6,7 @@ import Services from './components/Services'
 import SuccessStories from './components/SuccessStories'
 import About from './components/About'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
     const [currentView, setCurrentView] = useState<'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact'>('home')
@@ -26,6 +27,7 @@ function App() {
                 {currentView === 'about' && <About />}
                 {currentView === 'contact' && <Contact />}
             </main>
+            <Footer />
         </div>
     )
 }
