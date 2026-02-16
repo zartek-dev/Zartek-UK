@@ -37,8 +37,12 @@ const Footer: React.FC = () => {
 
                     {/* Col 1: Brand */}
                     <div className="space-y-6">
-                        <div className="text-2xl font-bold tracking-tighter font-display">
-                            ZARTEK <span className="text-black">UK</span>
+                        <div>
+                            <img
+                                src="/assets/zartek-logo.png"
+                                alt="Zartek UK - AI Development Company London"
+                                className="h-8 w-auto"
+                            />
                         </div>
                         <p className="text-sm text-slate-500 leading-relaxed font-light max-w-xs">
                             Enterprise Futurist: Building AI that scales with enterprise ambition. London-based, globally focused.

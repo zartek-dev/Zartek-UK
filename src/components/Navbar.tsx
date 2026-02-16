@@ -40,10 +40,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-2xl font-bold tracking-tighter font-display text-slate-900 cursor-pointer"
+                className="cursor-pointer"
                 onClick={() => handleNavClick({ name: 'Home', view: 'home' })}
             >
-                ZARTEK <span className="text-black">UK</span>
+                <img
+                    src="/assets/zartek-logo.png"
+                    alt="Zartek UK - AI Development Company London"
+                    className="h-9 w-auto"
+                />
             </motion.div>
 
             <div className="hidden md:flex items-center gap-8">
