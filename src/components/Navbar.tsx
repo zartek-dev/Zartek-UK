@@ -2,20 +2,21 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 interface NavbarProps {
-    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about';
-    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about') => void;
+    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact';
+    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact') => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     const navItems = [
         { name: 'Home', view: 'home' as const },
         { name: 'Services', view: 'services' as const },
-        { name: 'Industries', view: 'industries' as const },
+        { name: 'Case Studies', view: 'industries' as const },
         { name: 'Success Stories', view: 'success-stories' as const },
         { name: 'About Us', view: 'about' as const },
+        { name: 'Contact Us', view: 'contact' as const },
     ];
 
-    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about'; href?: string }) => {
+    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact'; href?: string }) => {
         if (item.view) {
             onViewChange(item.view);
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -64,19 +65,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
             <motion.button
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                onClick={() => {
-                    if (currentView !== 'home') {
-                        onViewChange('home');
-                        setTimeout(() => {
-                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                        }, 100);
-                    } else {
-                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }}
+                onClick={() => handleNavClick({ name: 'Contact Us', view: 'contact' })}
                 className="px-6 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
             >
-                Contact Us
+                Start Your Journey
             </motion.button>
         </nav>
     );
