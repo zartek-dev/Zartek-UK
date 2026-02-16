@@ -43,17 +43,17 @@ const Services: React.FC = () => {
     ];
 
     return (
-        <div className="relative min-h-screen bg-black text-white selection:bg-[#00eeff] selection:text-black overflow-hidden font-sans">
+        <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
             {/* Background Blurs */}
             <motion.div
-                animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.1, 1] }}
+                animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
                 transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#00eeff]/10 blur-[150px] rounded-full pointer-events-none"
+                className="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-slate-100 blur-[150px] rounded-full pointer-events-none"
             />
             <motion.div
-                animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.2, 1] }}
+                animate={{ opacity: [0.05, 0.1, 0.05], scale: [1, 1.2, 1] }}
                 transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                className="fixed bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-purple-500/5 blur-[150px] rounded-full pointer-events-none"
+                className="fixed bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-slate-50 blur-[150px] rounded-full pointer-events-none"
             />
 
             <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
@@ -63,7 +63,7 @@ const Services: React.FC = () => {
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]"
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
                         >
                             Specialized Capabilities
                         </motion.span>
@@ -71,16 +71,16 @@ const Services: React.FC = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-8xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight"
+                            className="text-6xl md:text-8xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight text-slate-900"
                         >
                             Architecting the <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eeff] via-white to-purple-400">Intelligence Era</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500">Intelligence Era</span>
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="text-xl text-gray-400 max-w-2xl font-light leading-relaxed"
+                            className="text-xl text-slate-600 max-w-2xl font-light leading-relaxed"
                         >
                             Zartek UK delivers premium AI consultation and bespoke neural infrastructure for forward-thinking enterprises across specific vertical markets.
                         </motion.p>
@@ -95,17 +95,16 @@ const Services: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-10 rounded-[3rem] bg-white/5 border border-white/10 hover:border-[#00eeff]/30 transition-all group relative overflow-hidden"
+                                className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-black/20 transition-all group relative overflow-hidden"
                             >
                                 <div className="relative z-10">
-                                    <div className="w-12 h-12 rounded-2xl bg-[#00eeff]/20 text-[#00eeff] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,238,255,0.2)]">
+                                    <div className="w-12 h-12 rounded-2xl bg-black/5 text-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                         {service.icon}
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#00eeff]/60 mb-2 block">{service.tag}</span>
-                                    <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                                    <p className="text-gray-400 leading-relaxed text-sm">{service.desc}</p>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 block">{service.tag}</span>
+                                    <h3 className="text-2xl font-bold mb-4 text-slate-900">{service.title}</h3>
+                                    <p className="text-slate-500 leading-relaxed text-sm">{service.desc}</p>
                                 </div>
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#00eeff]/5 blur-3xl rounded-full -mr-16 -mt-16 group-hover:bg-[#00eeff]/10 transition-colors" />
                             </motion.div>
                         ))}
                     </div>
@@ -113,13 +112,13 @@ const Services: React.FC = () => {
                     {/* Methodology Section */}
                     <div className="mb-32">
                         <div className="text-center mb-20">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]">The Process</span>
-                            <h2 className="text-4xl md:text-6xl font-bold font-display mt-4">Autonomous Workflows</h2>
+                            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">The Process</span>
+                            <h2 className="text-4xl md:text-5xl font-bold font-display mt-4 text-slate-900">Autonomous Workflows</h2>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
                             {/* Connector Line */}
-                            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-white/10" />
+                            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-slate-100" />
 
                             {methodology.map((step, i) => (
                                 <motion.div
@@ -130,11 +129,11 @@ const Services: React.FC = () => {
                                     transition={{ delay: i * 0.1 }}
                                     className="relative z-10 text-center px-4"
                                 >
-                                    <div className="w-24 h-24 rounded-full bg-black border border-white/10 flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(255,255,255,0.05)] group hover:border-[#00eeff]/50 transition-colors">
-                                        <span className="text-3xl font-black text-white/10 group-hover:text-[#00eeff] transition-colors">0{i + 1}</span>
+                                    <div className="w-24 h-24 rounded-full bg-white border border-slate-100 flex items-center justify-center mx-auto mb-8 group hover:border-black/20 transition-colors">
+                                        <span className="text-3xl font-black text-slate-100 group-hover:text-black/20 transition-colors">0{i + 1}</span>
                                     </div>
-                                    <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                                    <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+                                    <h3 className="text-lg font-bold mb-2 text-slate-900">{step.title}</h3>
+                                    <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -145,24 +144,20 @@ const Services: React.FC = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="p-12 md:p-24 rounded-[4rem] bg-gradient-to-br from-[#00eeff]/10 to-transparent border border-white/5 text-center relative overflow-hidden"
+                        className="p-12 md:p-24 rounded-[4rem] bg-slate-900 border border-slate-800 text-center relative overflow-hidden text-white"
                     >
                         <div className="relative z-10 max-w-2xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-bold mb-8">Premium AI Consultation</h2>
-                            <p className="text-gray-400 text-lg mb-10">
+                            <p className="text-white/60 text-lg mb-10">
                                 Whether you're fine-tuning open-source models or building a multi-agent ecosystem, our team delivers the roadmap for absolute performance.
                             </p>
-                            <button className="px-12 py-5 bg-[#00eeff] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform hover:shadow-[0_0_40px_rgba(0,238,255,0.5)] cursor-pointer">
+                            <button className="px-12 py-5 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer">
                                 Consult with an Expert
                             </button>
                         </div>
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none"></div>
                     </motion.div>
                 </div>
             </main>
-
-            {/* Grain Overlay */}
-            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay"></div>
         </div>
     );
 };

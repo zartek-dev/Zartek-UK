@@ -36,20 +36,18 @@ const About: React.FC<AboutProps> = () => {
     ];
 
     return (
-        <div className="relative min-h-screen bg-black text-white selection:bg-[#00eeff] selection:text-black overflow-hidden font-sans">
+        <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
             {/* Background Blurs */}
             <motion.div
-                animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.1, 1] }}
+                animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00eeff]/20 blur-[150px] rounded-full pointer-events-none"
+                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-slate-100 blur-[150px] rounded-full pointer-events-none"
             />
             <motion.div
-                animate={{ opacity: [0.2, 0.4, 0.2], scale: [1, 1.2, 1] }}
+                animate={{ opacity: [0.05, 1, 0.05], scale: [1, 1.2, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-500/10 blur-[150px] rounded-full pointer-events-none"
+                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-slate-50 blur-[150px] rounded-full pointer-events-none"
             />
-
-
 
             <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
                 <div className="max-w-7xl mx-auto">
@@ -58,7 +56,7 @@ const About: React.FC<AboutProps> = () => {
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#00eeff]"
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
                         >
                             About Zartek UK
                         </motion.span>
@@ -66,15 +64,15 @@ const About: React.FC<AboutProps> = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-5xl md:text-7xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight"
+                            className="text-5xl md:text-7xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight text-slate-900"
                         >
-                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00eeff] to-purple-400">London Business Heritage</span>
+                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">London Business Heritage</span>
                         </motion.h1>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="max-w-3xl space-y-6 text-xl text-gray-400 font-light leading-relaxed"
+                            className="max-w-3xl space-y-6 text-xl text-slate-600 font-light leading-relaxed"
                         >
                             <p>
                                 Founded by a collective of ex-FAANG engineers and London-based strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
@@ -94,13 +92,13 @@ const About: React.FC<AboutProps> = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
-                                className="p-10 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-sm hover:border-[#00eeff]/30 transition-all group"
+                                className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 backdrop-blur-sm hover:border-black/20 transition-all group"
                             >
-                                <div className="w-12 h-12 rounded-2xl bg-[#00eeff]/20 text-[#00eeff] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,238,255,0.2)]">
+                                <div className="w-12 h-12 rounded-2xl bg-black/5 text-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                     {v.icon}
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">{v.title}</h3>
-                                <p className="text-gray-400 leading-relaxed">{v.desc}</p>
+                                <h3 className="text-2xl font-bold mb-4 text-slate-900">{v.title}</h3>
+                                <p className="text-slate-500 leading-relaxed text-sm">{v.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -110,31 +108,25 @@ const About: React.FC<AboutProps> = () => {
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="relative p-12 md:p-20 rounded-[3rem] bg-gradient-to-br from-[#00eeff]/5 to-purple-500/5 border border-white/5 overflow-hidden group"
+                        className="relative p-12 md:p-20 rounded-[3rem] bg-slate-900 text-white overflow-hidden group shadow-2xl"
                     >
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Build the Future?</h2>
-                            <p className="text-gray-400 text-lg mb-10">
+                            <p className="text-white/60 text-lg mb-10">
                                 Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is here to guide you through the AI landscape.
                             </p>
                             <button
                                 onClick={() => {
                                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                                 }}
-                                className="px-10 py-4 bg-[#00eeff] text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform hover:shadow-[0_0_30px_rgba(0,238,255,0.4)] cursor-pointer"
+                                className="px-10 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
                             >
                                 Start Your AI Journey
                             </button>
                         </div>
-                        {/* Decorative orbs in the card */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00eeff]/10 blur-[100px] -mr-32 -mt-32" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 blur-[100px] -ml-32 -mb-32" />
                     </motion.div>
                 </div>
             </main>
-
-            {/* Grain Overlay */}
-            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] pointer-events-none mix-blend-overlay"></div>
         </div>
     );
 };

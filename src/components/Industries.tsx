@@ -56,88 +56,109 @@ const Industries: React.FC<IndustriesProps> = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-white text-black selection:bg-[#00eeff] selection:text-black pt-32 pb-20 px-6 md:px-12">
-            <div className="max-w-7xl mx-auto">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-20"
-                >
+        <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
+            {/* Background Blurs */}
+            <motion.div
+                animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="fixed top-[-10%] right-[-10%] w-[50%] h-[50%] bg-slate-100 blur-[150px] rounded-full pointer-events-none"
+            />
+            <motion.div
+                animate={{ opacity: [0.05, 0.1, 0.05], scale: [1, 1.2, 1] }}
+                transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="fixed bottom-[-10%] left-[-10%] w-[60%] h-[60%] bg-slate-50 blur-[150px] rounded-full pointer-events-none"
+            />
 
-                    <h1 className="text-5xl md:text-8xl font-bold font-display tracking-tight leading-tight mb-6">
-                        Architecting the <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-500">Intelligence Era</span>
-                    </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl font-light leading-relaxed">
-                        Zartek UK delivers premium AI consultation and bespoke neural infrastructure for forward-thinking enterprises across specific vertical markets.
-                    </p>
-                </motion.div>
-
-                <section className="mb-32">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-400 mb-12">Industries We Transform</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {industries.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                className="p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:border-black transition-all group shadow-sm hover:shadow-md"
-                            >
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 group-hover:text-black transition-colors">{item.tag}</span>
-                                <h3 className="text-2xl font-bold mt-2 mb-4 text-black">{item.title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed mb-6">{item.desc}</p>
-                                <div className="text-black text-xs font-bold flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                    EXPLORE SOLUTIONS <span>→</span>
-                                </div>
-                            </motion.div>
-                        ))}
+            <main className="relative z-10 pt-32 pb-20 px-6 md:px-12">
+                <div className="max-w-7xl mx-auto">
+                    {/* Hero Section */}
+                    <div className="mb-32">
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400"
+                        >
+                            Vertical Expertise
+                        </motion.span>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 }}
+                            className="text-6xl md:text-8xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight text-slate-900"
+                        >
+                            Deep Intelligence <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500">Across Industries</span>
+                        </motion.h1>
+                        <p className="text-xl text-slate-600 max-w-3xl font-light leading-relaxed">
+                            Zartek UK delivers premium AI consultation and bespoke neural infrastructure for forward-thinking enterprises across specific vertical markets.
+                        </p>
                     </div>
-                </section>
 
-                <section className="mb-32">
-                    <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-400 mb-12">Specialized Capabilities</h2>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {services.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="relative p-8 rounded-[2rem] bg-gray-50 border border-gray-100 shadow-sm"
-                            >
-                                <h3 className="text-2xl font-bold mb-4 text-black">{item.title}</h3>
-                                <p className="text-gray-500 text-sm leading-relaxed mb-8">{item.desc}</p>
-                                <ul className="grid gap-3">
-                                    {item.features.map((f, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-xs font-medium text-gray-600">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-black/20" />
-                                            {f}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
+                    <section className="mb-32">
+                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Industries We Transform</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {industries.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.05 }}
+                                    className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-black/20 transition-all group shadow-sm hover:shadow-md"
+                                >
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 group-hover:text-black transition-colors">{item.tag}</span>
+                                    <h3 className="text-2xl font-bold mt-2 mb-4 text-slate-900">{item.title}</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6">{item.desc}</p>
+                                    <div className="text-slate-900 text-xs font-bold flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                        EXPLORE SOLUTIONS <span>→</span>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </section>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="p-12 md:p-20 rounded-[3rem] bg-black text-white text-center shadow-2xl"
-                >
-                    <h2 className="text-3xl md:text-5xl font-bold font-display mb-8">Ready to Future-Proof Your Enterprise?</h2>
-                    <p className="text-gray-400 mb-10 max-w-2xl mx-auto">
-                        Join the leading London organizations leveraging Zartek UK's expertise to dominate their sectors through Applied AI.
-                    </p>
-                    <button className="px-10 py-5 bg-white text-black font-bold rounded-xl text-lg hover:scale-105 transition-transform cursor-pointer">
-                        Start Here
-                    </button>
-                </motion.div>
-            </div>
+                    <section className="mb-32">
+                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Specialized Capabilities</h2>
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            {services.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className="relative p-8 rounded-[2rem] bg-slate-50 border border-slate-100 shadow-sm"
+                                >
+                                    <h3 className="text-2xl font-bold mb-4 text-slate-900">{item.title}</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-8">{item.desc}</p>
+                                    <ul className="grid gap-3">
+                                        {item.features.map((f, i) => (
+                                            <li key={i} className="flex items-center gap-2 text-xs font-medium text-slate-600">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-black/20" />
+                                                {f}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </section>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="p-12 md:p-20 rounded-[3rem] bg-slate-900 text-white text-center shadow-2xl"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-bold font-display mb-8 text-white">Ready to Future-Proof Your Enterprise?</h2>
+                        <p className="text-white/60 mb-10 max-w-2xl mx-auto">
+                            Join the leading London organizations leveraging Zartek UK's expertise to dominate their sectors through Applied AI.
+                        </p>
+                        <button className="px-10 py-5 bg-white text-black font-bold rounded-xl text-lg hover:scale-105 transition-transform cursor-pointer">
+                            Start Here
+                        </button>
+                    </motion.div>
+                </div>
         </div>
     );
 };

@@ -35,14 +35,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     };
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 backdrop-blur-md bg-black/20 border-b border-white/5">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 backdrop-blur-md bg-white/80 border-b border-gray-100">
             <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-2xl font-bold tracking-tighter font-display text-white cursor-pointer"
+                className="text-2xl font-bold tracking-tighter font-display text-slate-900 cursor-pointer"
                 onClick={() => handleNavClick({ name: 'Home', view: 'home' })}
             >
-                ZARTEK <span className="text-[#00eeff]">UK</span>
+                ZARTEK <span className="text-black">UK</span>
             </motion.div>
 
             <div className="hidden md:flex items-center gap-8">
@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index }}
                         onClick={() => handleNavClick(item)}
-                        className={`text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${(item.view && currentView === item.view) ? 'text-[#00eeff]' : 'text-gray-400 hover:text-white'
+                        className={`text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${(item.view && currentView === item.view) ? 'text-black' : 'text-slate-400 hover:text-slate-900'
                             }`}
                     >
                         {item.name}
@@ -74,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
                         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                     }
                 }}
-                className="px-6 py-2 bg-[#00eeff] text-black rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform hover:shadow-[0_0_20px_rgba(0,238,255,0.3)] cursor-pointer"
+                className="px-6 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
             >
                 Contact Us
             </motion.button>

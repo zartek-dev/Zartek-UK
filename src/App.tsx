@@ -15,7 +15,7 @@ function App() {
     }, [currentView])
 
     return (
-        <div className="bg-black min-h-screen">
+        <div className="bg-white min-h-screen">
             <Navbar currentView={currentView} onViewChange={setCurrentView} />
             <main>
                 {currentView === 'home' && <ZartekHome />}

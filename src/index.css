@@ -2,6 +2,7 @@
 
 :root {
     background-color: #ffffff;
-    color: #000000;
-    font-family: 'Manrope', sans-serif;
+    color: #0f172a;
+    /* text-slate-900 */
+    font-family: 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif;
 }
