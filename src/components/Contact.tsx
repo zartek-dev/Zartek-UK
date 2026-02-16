@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 
 const Contact: React.FC = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSuccess, setIsSuccess] = useState(false);
+
     const experts = [
         {
             name: "David Sterling",
@@ -41,6 +44,35 @@ const Contact: React.FC = () => {
             initials: "PP"
         }
     ];
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('https://formspree.io/f/xwvnbknw', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                setIsSuccess(true);
+                form.reset();
+            } else {
+                alert('There was a problem submitting your form. Please try again.');
+            }
+        } catch (error) {
+            alert('There was a problem submitting your form. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
@@ -93,35 +125,83 @@ const Contact: React.FC = () => {
                             transition={{ delay: 0.3 }}
                             className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 backdrop-blur-3xl"
                         >
-                            <form className="space-y-8">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div className="space-y-2">
-                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Name</label>
-                                        <input type="text" className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900" placeholder="John Doe" />
+                            {!isSuccess ? (
+                                <form className="space-y-8" onSubmit={handleSubmit}>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Name</label>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                required
+                                                className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900"
+                                                placeholder="John Doe"
+                                            />
+                                        </div>
+                                        <div className="space-y-2">
+                                            <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Work Email</label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                required
+                                                className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900"
+                                                placeholder="john@company.com"
+                                            />
+                                        </div>
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Work Email</label>
-                                        <input type="email" className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900" placeholder="john@company.com" />
+                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Industry</label>
+                                        <select
+                                            name="industry"
+                                            required
+                                            className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900 appearance-none"
+                                        >
+                                            <option>FinTech</option>
+                                            <option>Healthcare</option>
+                                            <option>Retail</option>
+                                            <option>Logistics</option>
+                                            <option>Other</option>
+                                        </select>
                                     </div>
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Industry</label>
-                                    <select className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900 appearance-none">
-                                        <option>FinTech</option>
-                                        <option>Healthcare</option>
-                                        <option>Retail</option>
-                                        <option>Logistics</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Project Details</label>
-                                    <textarea rows={5} className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900 resize-none" placeholder="How can we help you scale with AI?"></textarea>
-                                </div>
-                                <button className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-xl">
-                                    Submit Request
-                                </button>
-                            </form>
+                                    <div className="space-y-2">
+                                        <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Project Details</label>
+                                        <textarea
+                                            rows={5}
+                                            name="message"
+                                            required
+                                            className="w-full px-6 py-4 rounded-2xl bg-white border border-slate-100 focus:border-black transition-colors outline-none text-slate-900 resize-none"
+                                            placeholder="How can we help you scale with AI?"
+                                        ></textarea>
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full py-5 bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                                    </button>
+                                </form>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className="flex flex-col items-center justify-center py-20 text-center"
+                                >
+                                    <motion.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                                        className="w-20 h-20 rounded-full bg-slate-900 flex items-center justify-center mb-8"
+                                    >
+                                        <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </motion.div>
+                                    <h3 className="text-3xl font-bold mb-4 text-slate-900">Thank you.</h3>
+                                    <p className="text-lg text-slate-600 font-light">We'll be in touch shortly.</p>
+                                </motion.div>
+                            )}
                         </motion.div>
 
                         {/* Office Info */}
