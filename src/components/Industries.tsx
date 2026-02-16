@@ -144,10 +144,23 @@ const Industries: React.FC<IndustriesProps> = () => {
                         </div>
                     </section>
 
-                </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="p-12 md:p-20 rounded-[3rem] bg-slate-900 text-white text-center shadow-2xl"
+                    >
+                        <h2 className="text-3xl md:text-5xl font-bold font-display mb-8 text-white">Ready to Future-Proof Your Enterprise?</h2>
+                        <p className="text-white/60 mb-10 max-w-2xl mx-auto">
+                            Join the leading London organizations leveraging Zartek UK's expertise to dominate their sectors through Applied AI.
+                        </p>
+                        <button className="px-10 py-5 bg-white text-black font-bold rounded-xl text-lg hover:scale-105 transition-transform cursor-pointer">
+                            Start Here
+                        </button>
+                    </motion.div>
+                </div>
+            </main>
         </div>
-            </main >
-        </div >
     );
 };
 

@@ -26,11 +26,11 @@ const WhyZartek: React.FC = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <h2 className="text-4xl md:text-6xl font-bold font-display leading-tight mb-8 text-black">
+                        <h2 className="text-4xl md:text-6xl font-bold font-display leading-tight mb-8 text-slate-900">
                             Why Choose <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 to-gray-500">Zartek UK?</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">Zartek UK?</span>
                         </h2>
-                        <p className="text-xl text-gray-600 font-light leading-relaxed mb-10">
+                        <p className="text-xl text-slate-600 font-light leading-relaxed mb-10">
                             We aren't just here to build a prototype. We're here to be your long-term AI partner,
                             ensuring your business stays ahead of the curve as technology evolves.
                         </p>
@@ -44,16 +44,16 @@ const WhyZartek: React.FC = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                                className="flex gap-6 p-8 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm hover:shadow-md transition-all"
+                                className="flex gap-6 p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-slate-300 transition-all group shadow-sm hover:shadow-md"
                             >
-                                <div className="shrink-0 w-12 h-12 rounded-xl bg-black/5 border border-black/10 flex items-center justify-center text-black">
+                                <div className="shrink-0 w-12 h-12 rounded-xl bg-slate-900/5 border border-slate-900/10 flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-all">
                                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-bold mb-2 text-black">{reason.title}</h3>
-                                    <p className="text-gray-500 leading-relaxed text-sm">{reason.desc}</p>
+                                    <h3 className="text-xl font-bold mb-2 text-slate-900">{reason.title}</h3>
+                                    <p className="text-slate-500 leading-relaxed text-sm">{reason.desc}</p>
                                 </div>
                             </motion.div>
                         ))}

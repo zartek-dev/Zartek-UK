@@ -30,15 +30,15 @@ const Methodology: React.FC = () => {
                     viewport={{ once: true }}
                     className="text-center mb-24"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold font-display mb-6 text-black">Our Methodology</h2>
-                    <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+                    <h2 className="text-4xl md:text-6xl font-bold font-display mb-6 text-slate-900">Our Methodology</h2>
+                    <p className="text-slate-600 text-lg max-w-2xl mx-auto font-light">
                         A rigorous, enterprise-grade approach to building intelligent systems.
                     </p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
                     {/* Line connector for large screens */}
-                    <div className="hidden lg:block absolute top-[28px] left-[15%] right-[15%] h-[1px] bg-black/5" />
+                    <div className="hidden lg:block absolute top-[28px] left-[15%] right-[15%] h-[1px] bg-slate-900/5" />
 
                     {steps.map((step, index) => (
                         <motion.div
@@ -49,11 +49,11 @@ const Methodology: React.FC = () => {
                             transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="relative z-10 text-center px-4"
                         >
-                            <div className="w-14 h-14 rounded-full bg-white border border-black/10 flex items-center justify-center mx-auto mb-8 group hover:border-black transition-colors duration-500 shadow-sm">
-                                <span className="text-xl font-bold text-gray-400 group-hover:text-black">0{index + 1}</span>
+                            <div className="w-14 h-14 rounded-full bg-white border border-slate-100 flex items-center justify-center mx-auto mb-8 group hover:border-slate-900 transition-colors duration-500 shadow-sm">
+                                <span className="text-xl font-bold text-slate-300 group-hover:text-slate-900">0{index + 1}</span>
                             </div>
-                            <h3 className="text-xl font-bold mb-4 text-black">{step.title}</h3>
-                            <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+                            <h3 className="text-xl font-bold mb-4 text-slate-900">{step.title}</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
                         </motion.div>
                     ))}
                 </div>

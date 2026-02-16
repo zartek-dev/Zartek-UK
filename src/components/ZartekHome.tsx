@@ -13,21 +13,19 @@ interface ZartekHomeProps { }
 
 const ZartekHome: React.FC<ZartekHomeProps> = () => {
     return (
-        <div className="relative min-h-screen bg-white overflow-hidden text-black font-sans selection:bg-[#00eeff] selection:text-black">
+        <div className="relative min-h-screen bg-white overflow-hidden text-slate-900 font-sans selection:bg-slate-900 selection:text-white">
 
-            {/* Background Blurs - Adjusted for Light Mode */}
+            {/* Background Blurs - Refined Apple Style */}
             <motion.div
-                animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
+                animate={{ opacity: [0.05, 0.1, 0.05], scale: [1, 1.1, 1] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#00eeff]/20 blur-[150px] rounded-full pointer-events-none mix-blend-multiply"
+                className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] bg-slate-100 blur-[150px] rounded-full pointer-events-none"
             />
             <motion.div
-                animate={{ opacity: [0.05, 0.15, 0.05], scale: [1, 1.2, 1] }}
+                animate={{ opacity: [0.03, 0.08, 0.03], scale: [1, 1.2, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-purple-200/30 blur-[150px] rounded-full pointer-events-none mix-blend-multiply"
+                className="fixed bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-slate-50 blur-[150px] rounded-full pointer-events-none"
             />
-
-
 
             {/* Sections */}
             <div className="relative">
@@ -41,8 +39,8 @@ const ZartekHome: React.FC<ZartekHomeProps> = () => {
                 <Footer />
             </div>
 
-            {/* Grid Pattern Overlay - Subtler for Light Mode */}
-            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03] pointer-events-none mix-blend-overlay"></div>
+            {/* Grain Overlay */}
+            <div className="fixed inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.02] pointer-events-none mix-blend-overlay"></div>
 
         </div>
     );
