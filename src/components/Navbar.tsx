@@ -2,21 +2,22 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 interface NavbarProps {
-    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact';
-    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact') => void;
+    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs';
+    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs') => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     const navItems = [
         { name: 'Home', view: 'home' as const },
         { name: 'Services', view: 'services' as const },
-        { name: 'Industries', view: 'industries' as const },
+        { name: 'Case Studies', view: 'industries' as const },
         { name: 'Success Stories', view: 'success-stories' as const },
+        { name: 'Blogs', view: 'blogs' as const },
         { name: 'About Us', view: 'about' as const },
         { name: 'Contact Us', view: 'contact' as const },
     ];
 
-    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact'; href?: string }) => {
+    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs'; href?: string }) => {
         if (item.view) {
             onViewChange(item.view);
             window.scrollTo({ top: 0, behavior: 'smooth' });
