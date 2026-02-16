@@ -10,7 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     const navItems = [
         { name: 'Home', view: 'home' as const },
         { name: 'Services', view: 'services' as const },
-        { name: 'Case Studies', view: 'industries' as const },
+        { name: 'Industries', view: 'industries' as const },
         { name: 'Success Stories', view: 'success-stories' as const },
         { name: 'About Us', view: 'about' as const },
         { name: 'Contact Us', view: 'contact' as const },

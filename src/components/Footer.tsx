@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     const navLinks = [
         { name: 'Home', href: '#' },
         { name: 'Services', href: '#' },
-        { name: 'Case Studies', href: '#' },
+        { name: 'Industries', href: '#' },
         { name: 'Success Stories', href: '#' },
         { name: 'About Us', href: '#' },
     ];
