@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 const SuccessStories: React.FC = () => {
     const stories = [
@@ -31,6 +32,10 @@ const SuccessStories: React.FC = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans pt-32 pb-20 px-6 md:px-12">
+            <Helmet>
+                <title>Success Stories & Impact | Zartek UK</title>
+                <meta name="description" content="Discover how Zartek UK has helped enterprises achieve verifiable results through custom AI development and strategic consultation." />
+            </Helmet>
             {/* Background Materials */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-slate-100 blur-[120px] rounded-full" />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { HelmetProvider } from 'react-helmet-async'
 import Navbar from './components/Navbar'
 import ZartekHome from './components/ZartekHome'
 import Industries from './components/Industries'
@@ -17,18 +18,20 @@ function App() {
     }, [currentView])
 
     return (
-        <div className="bg-white min-h-screen">
-            <Navbar currentView={currentView} onViewChange={setCurrentView} />
-            <main>
-                {currentView === 'home' && <ZartekHome />}
-                {currentView === 'industries' && <Industries />}
-                {currentView === 'services' && <Services />}
-                {currentView === 'success-stories' && <SuccessStories />}
-                {currentView === 'about' && <About />}
-                {currentView === 'contact' && <Contact />}
-            </main>
-            <Footer />
-        </div>
+        <HelmetProvider>
+            <div className="bg-white min-h-screen">
+                <Navbar currentView={currentView} onViewChange={setCurrentView} />
+                <main>
+                    {currentView === 'home' && <ZartekHome />}
+                    {currentView === 'industries' && <Industries />}
+                    {currentView === 'services' && <Services />}
+                    {currentView === 'success-stories' && <SuccessStories />}
+                    {currentView === 'about' && <About />}
+                    {currentView === 'contact' && <Contact />}
+                </main>
+                <Footer />
+            </div>
+        </HelmetProvider>
     )
 }
 

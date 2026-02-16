@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 interface AboutProps { }
 
@@ -37,6 +38,10 @@ const About: React.FC<AboutProps> = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
+            <Helmet>
+                <title>About Zartek UK | Leading AI Company London</title>
+                <meta name="description" content="Zartek UK is a collective of ex-FAANG engineers and consultants based in Shoreditch, helping UK enterprises architect the future with AI." />
+            </Helmet>
             {/* Background Blurs */}
             <motion.div
                 animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}

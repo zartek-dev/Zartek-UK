@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 const Contact: React.FC = () => {
     const experts = [
@@ -43,6 +44,10 @@ const Contact: React.FC = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
+            <Helmet>
+                <title>Contact Our AI Experts | Zartek UK London</title>
+                <meta name="description" content="Get in touch with Zartek UK's AI consultants. Based in Canary Wharf, London, we help enterprises build the intelligent future." />
+            </Helmet>
             {/* Background Blurs */}
             <motion.div
                 animate={{ opacity: [0.1, 0.15, 0.1], scale: [1, 1.1, 1] }}

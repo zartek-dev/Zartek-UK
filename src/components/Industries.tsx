@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 interface IndustriesProps { }
 
@@ -57,6 +58,10 @@ const Industries: React.FC<IndustriesProps> = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
+            <Helmet>
+                <title>AI Solutions for Industries | Zartek UK</title>
+                <meta name="description" content="Explore Zartek UK's AI solutions across FinTech, Healthcare, Retail, and more. Custom AI development for the modern enterprise." />
+            </Helmet>
             {/* Background Blurs */}
             <motion.div
                 animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}
@@ -94,8 +99,8 @@ const Industries: React.FC<IndustriesProps> = () => {
                         </p>
                     </div>
 
-                    <section className="mb-32">
-                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">Industries We Transform</h2>
+                    <section className="mb-32" id="expertise">
+                        <h2 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400 mb-12">AI Solutions Across Various Industries</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {industries.map((item, index) => (
                                 <motion.div

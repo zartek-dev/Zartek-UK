@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 
 const Services: React.FC = () => {
     const services = [
@@ -44,6 +45,10 @@ const Services: React.FC = () => {
 
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
+            <Helmet>
+                <title>AI Consultation & Services | Zartek UK</title>
+                <meta name="description" content="Professional AI consultation and custom machine learning solutions in London. Explore our services from strategy to deployment." />
+            </Helmet>
             {/* Background Blurs */}
             <motion.div
                 animate={{ opacity: [0.1, 0.2, 0.1], scale: [1, 1.1, 1] }}

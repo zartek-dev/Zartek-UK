@@ -18,7 +18,7 @@ const CaseStudy: React.FC = () => {
                             <div className="text-slate-900 text-6xl font-black tracking-tighter opacity-10 group-hover:opacity-20 transition-opacity">IndusGo</div>
                         </div>
                         <div className="absolute bottom-10 left-10">
-                            <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-2">Automotive Case Study</h4>
+                            <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.3em] mb-2">Automotive Case Study</h3>
                             <p className="text-2xl font-bold text-slate-900">Seamless Mobility Transformation</p>
                         </div>
                     </motion.div>
