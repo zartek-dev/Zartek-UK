@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 interface AboutProps { }
 
@@ -16,8 +17,8 @@ const About: React.FC<AboutProps> = () => {
             )
         },
         {
-            title: "Local UK Presence",
-            desc: "Based in the heart of London, we offer on-site workshops, face-to-face strategy sessions, and a team that understands the UK market nuances, regulations, and business culture.",
+            title: "Global Presence",
+            desc: "We maintain a global presence with strategic offices in India, Canada, and Qatar.",
             icon: (
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -39,8 +40,8 @@ const About: React.FC<AboutProps> = () => {
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
             <Helmet>
-                <title>About Zartek UK | Leading AI Company London</title>
-                <meta name="description" content="Zartek UK is a collective of ex-FAANG engineers and consultants based in Shoreditch, helping UK enterprises architect the future with AI." />
+                <title>About Zartek UK | Leading AI Company</title>
+                <meta name="description" content="Zartek UK is a collective of ex-FAANG engineers and consultants, helping enterprises architect the future with AI." />
             </Helmet>
             {/* Background Blurs */}
             <motion.div
@@ -71,7 +72,7 @@ const About: React.FC<AboutProps> = () => {
                             transition={{ delay: 0.1 }}
                             className="text-5xl md:text-7xl font-bold font-display mt-4 mb-8 leading-tight tracking-tight text-slate-900"
                         >
-                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">London Business Heritage</span>
+                            Bridging Silicon Valley Tech with <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 to-slate-500">Global Business Heritage</span>
                         </motion.h1>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -80,7 +81,7 @@ const About: React.FC<AboutProps> = () => {
                             className="max-w-3xl space-y-6 text-xl text-slate-600 font-light leading-relaxed"
                         >
                             <p>
-                                Founded by a collective of ex-FAANG engineers and London-based strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
+                                Founded by a collective of ex-FAANG engineers and global strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
                             </p>
                             <p>
                                 We aren't just a dev shop. We are your local partners in digital transformation. From our headquarters in Shoreditch, we work intimately with FTSE 100 companies and high-growth startups to deploy AI that is ethical, explainable, and exceptionally powerful.
@@ -118,16 +119,14 @@ const About: React.FC<AboutProps> = () => {
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Build the Future?</h2>
                             <p className="text-white/60 text-lg mb-10">
-                                Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is here to guide you through the AI landscape.
+                                Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is down to guide you through the AI landscape.
                             </p>
-                            <button
-                                onClick={() => {
-                                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-                                }}
-                                className="px-10 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
+                            <Link
+                                to="/contact"
+                                className="inline-block px-10 py-4 bg-white text-black rounded-full font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
                             >
                                 Start Your AI Journey
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>

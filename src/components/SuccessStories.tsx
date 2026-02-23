@@ -43,19 +43,6 @@ const SuccessStories: React.FC = () => {
         }
     ];
 
-    const testimonials = [
-        {
-            quote: "Zartek didn't just build an app; they engineered a core business solution that scaled with our explosive growth. Their technical precision is unmatched in the industry.",
-            author: "Thomas Wright",
-            role: "CEO, IndusGo"
-        },
-        {
-            quote: "The GenOCR implementation reduced our manual processing time by 85% within the first quarter.",
-            author: "Sarah Miller",
-            role: "COO, HMA"
-        }
-    ];
-
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans pt-32 pb-20 px-6 md:px-12">
             <Helmet>
@@ -132,53 +119,18 @@ const SuccessStories: React.FC = () => {
                                 <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-grow font-light">
                                     {story.desc}
                                 </p>
-                                <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                    <Link
-                                        to={`/success-stories/${story.slug}`}
-                                        className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
-                                    >
-                                        VIEW CASE STUDY
-                                        <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                        </svg>
-                                    </Link>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Voices of Impact - Testimonials */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight text-slate-900 mb-4">
-                        Voices of Impact
-                    </h2>
-                    <p className="text-slate-500 font-light">Direct insights from our enterprise partners.</p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {testimonials.map((t, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.2 }}
-                            className="p-10 rounded-[3rem] bg-slate-50/80 border border-slate-100 backdrop-blur-2xl flex flex-col justify-between"
-                        >
-                            <div>
-                                <div className="text-5xl text-slate-200 font-black mb-6 leading-none">“</div>
-                                <p className="text-xl md:text-2xl font-light tracking-tight leading-relaxed text-slate-800 mb-8 italic">
-                                    {t.quote}
-                                </p>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
-                                    <div className="w-full h-full bg-slate-900" />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-sm text-slate-900">{t.author}</h4>
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.role}</p>
+                                <div className="pt-6 border-t border-slate-100 flex items-center justify-between min-h-[64px]">
+                                    {story.slug === 'indusgo' && (
+                                        <Link
+                                            to={`/success-stories/${story.slug}`}
+                                            className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
+                                        >
+                                            VIEW CASE STUDY
+                                            <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                            </svg>
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

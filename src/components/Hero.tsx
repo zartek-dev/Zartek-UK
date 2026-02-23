@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
     return (
@@ -37,23 +38,21 @@ const Hero: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
-                className="flex flex-col md:flex-row gap-4 w-full md:w-auto"
+                className="flex flex-col md:flex-row gap-4 w-full md:w-auto items-center justify-center"
             >
-                <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group relative px-8 py-4 bg-black text-white font-bold rounded-lg overflow-hidden cursor-pointer"
+                <Link
+                    to="/contact"
+                    className="group relative px-8 py-4 bg-black text-white font-bold rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform"
                 >
                     <span className="relative z-10">Start Your AI Project</span>
-                </motion.button>
+                </Link>
 
-                <motion.button
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.02)" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 rounded-lg border border-slate-200 transition-colors font-medium cursor-pointer text-slate-800"
+                <Link
+                    to="/services"
+                    className="px-8 py-4 rounded-lg border border-slate-200 transition-all font-medium cursor-pointer text-slate-800 hover:scale-105 hover:bg-slate-50"
                 >
                     Explore Services
-                </motion.button>
+                </Link>
             </motion.div>
 
             <motion.div

@@ -6,44 +6,7 @@ const Contact: React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
 
-    const experts = [
-        {
-            name: "David Sterling",
-            role: "Chief AI Architect",
-            desc: "Former DeepMind researcher specializing in NLP and predictive modeling for fintech.",
-            initials: "DS"
-        },
-        {
-            name: "Sarah Jenkins",
-            role: "Head of Data Science",
-            desc: "PhD in Computational Statistics from Imperial College. Expert in large-scale data pipelines.",
-            initials: "SJ"
-        },
-        {
-            name: "Marcus Thorne",
-            role: "Enterprise Solutions Lead",
-            desc: "Bridging the gap between technical complexity and business value for Fortune 500 clients.",
-            initials: "MT"
-        },
-        {
-            name: "Elena Rodriguez",
-            role: "Machine Learning Engineer",
-            desc: "Specializes in computer vision and generative AI models for creative industries.",
-            initials: "ER"
-        },
-        {
-            name: "James Wu",
-            role: "Cloud Infrastructure Architect",
-            desc: "AWS Certified Solutions Architect ensuring scalable and secure AI deployments.",
-            initials: "JW"
-        },
-        {
-            name: "Priya Patel",
-            role: "Strategy Consultant",
-            desc: "Helping startups navigate the AI landscape and secure Series A funding.",
-            initials: "PP"
-        }
-    ];
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -213,11 +176,10 @@ const Contact: React.FC = () => {
                         >
                             <div className="space-y-12">
                                 <div>
-                                    <h2 className="text-3xl font-bold mb-6 text-slate-900">London Office</h2>
+                                    <h2 className="text-3xl font-bold mb-6 text-slate-900">Global Presence</h2>
                                     <p className="text-slate-600 text-lg leading-relaxed">
-                                        Level 39, One Canada Square <br />
-                                        Canary Wharf, London E14 5AB <br />
-                                        United Kingdom
+                                        Strategic offices in:<br />
+                                        India, Canada, and Qatar
                                     </p>
                                 </div>
                                 <div className="space-y-4">
@@ -242,37 +204,10 @@ const Contact: React.FC = () => {
                         </motion.div>
                     </div>
 
-                    {/* Experts Section */}
-                    <div className="mt-40">
-                        <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-5xl font-bold font-display mb-6 text-slate-900">Meet the Experts</h2>
-                            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-                                Our London-based team combines decades of experience in machine learning, data science, and enterprise architecture.
-                            </p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {experts.map((item, i) => (
-                                <motion.div
-                                    key={i}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:border-black/20 transition-all group"
-                                >
-                                    <div className="w-14 h-14 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-bold text-xl mb-8 group-hover:scale-110 transition-transform shadow-lg">
-                                        {item.initials}
-                                    </div>
-                                    <h3 className="text-2xl font-bold mb-2 text-slate-900">{item.name}</h3>
-                                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-6">{item.role}</p>
-                                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
                 </div>
-            </main>
         </div>
+            </main >
+        </div >
     );
 };
 

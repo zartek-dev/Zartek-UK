@@ -6,7 +6,6 @@ const Footer: React.FC = () => {
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'Services', path: '/services' },
-        { name: 'Case Studies', path: '/case-studies' },
         { name: 'Success Stories', path: '/success-stories' },
         { name: 'About Us', path: '/about' },
     ];
@@ -46,21 +45,8 @@ const Footer: React.FC = () => {
                             />
                         </div>
                         <p className="text-sm text-slate-500 leading-relaxed font-light max-w-xs">
-                            Enterprise Futurist: Building AI that scales with enterprise ambition. London-based, globally focused.
+                            Zartek is a leading AI development company in London with expertise in mass consumer technology products.
                         </p>
-                        <div className="flex gap-4">
-                            {socialLinks.map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    className="w-8 h-8 rounded-full border border-gray-100 flex items-center justify-center text-slate-400 hover:text-black hover:border-black transition-all"
-                                >
-                                    <span className="sr-only">{social.name}</span>
-                                    {/* Placeholder for icons - using dots for now but styled properly */}
-                                    <div className="w-1.5 h-1.5 rounded-full bg-current" />
-                                </a>
-                            ))}
-                        </div>
                     </div>
 
                     {/* Col 2: Navigation */}
@@ -95,17 +81,13 @@ const Footer: React.FC = () => {
                     <div className="space-y-8">
                         <div>
                             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-slate-900 mb-6 font-display">Contact</h4>
-                            <p className="text-sm text-slate-500 leading-relaxed font-light">
-                                80-82 Curtain Rd, Shoreditch,<br />
-                                London EC2A 3AF
-                            </p>
                         </div>
                         <div className="flex flex-col gap-4">
                             <Link to="/contact" className="w-full py-4 bg-black text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform cursor-pointer shadow-lg shadow-black/5 text-center">
                                 Book A Consultation
                             </Link>
-                            <a href="mailto:hello@zartek.co.uk" className="text-sm font-medium text-slate-900 hover:underline underline-offset-4 decoration-slate-200">
-                                hello@zartek.co.uk
+                            <a href="mailto:info@zartek.in" className="text-sm font-medium text-slate-900 hover:underline underline-offset-4 decoration-slate-200">
+                                info@zartek.in
                             </a>
                         </div>
                     </div>
