@@ -7,7 +7,6 @@ import ServicesPage from './components/ServicesPage'
 import SuccessStories from './components/SuccessStories'
 import About from './components/About'
 import Contact from './components/Contact'
-import Blogs from './components/Blogs'
 import CaseStudyIndusGo from './components/CaseStudyIndusGo'
 import CaseStudySurveySparrow from './components/CaseStudySurveySparrow'
 import CaseStudyFinTrack from './components/CaseStudyFinTrack'
@@ -31,7 +30,6 @@ function App() {
                         <Route path="/success-stories/surveysparrow" element={<CaseStudySurveySparrow />} />
                         <Route path="/success-stories/fintrack" element={<CaseStudyFinTrack />} />
                         <Route path="/success-stories/healthsync" element={<CaseStudyHealthSync />} />
-                        <Route path="/blog" element={<Blogs />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/contact" element={<Contact />} />
                         {/* 404 Redirect to Home */}
