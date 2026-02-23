@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate, Link } from 'react-router-dom';
 
-interface CaseStudyFinTrackProps {
-    onBack: () => void;
-}
-
-const CaseStudyFinTrack: React.FC<CaseStudyFinTrackProps> = ({ onBack }) => {
+const CaseStudyFinTrack: React.FC = () => {
+    const navigate = useNavigate();
     return (
         <div className="relative min-h-screen bg-white text-slate-900 selection:bg-black selection:text-white overflow-hidden font-sans">
             <Helmet>
@@ -25,7 +23,7 @@ const CaseStudyFinTrack: React.FC<CaseStudyFinTrackProps> = ({ onBack }) => {
             <section className="relative z-10 pt-32 pb-20 px-6 md:px-12">
                 <div className="max-w-5xl mx-auto">
                     <button
-                        onClick={onBack}
+                        onClick={() => navigate('/success-stories')}
                         className="mb-8 flex items-center gap-2 text-slate-400 hover:text-black transition-colors text-sm font-bold uppercase tracking-widest"
                     >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -164,12 +162,12 @@ const CaseStudyFinTrack: React.FC<CaseStudyFinTrackProps> = ({ onBack }) => {
                         <p className="text-lg text-slate-600 font-light mb-8">
                             Let's discuss how we can help you achieve similar results.
                         </p>
-                        <button
-                            onClick={onBack}
-                            className="px-8 py-4 bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-xl"
+                        <Link
+                            to="/contact"
+                            className="inline-block px-8 py-4 bg-black text-white rounded-2xl font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform shadow-xl"
                         >
-                            View More Case Studies
-                        </button>
+                            Start Your Journey
+                        </Link>
                     </motion.div>
                 </div>
             </section>

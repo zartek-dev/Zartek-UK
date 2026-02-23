@@ -1,40 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-interface NavbarProps {
-    currentView: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs';
-    onViewChange: (view: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs') => void;
-}
+const Navbar: React.FC = () => {
+    const navigate = useNavigate();
 
-const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
     const navItems = [
-        { name: 'Home', view: 'home' as const },
-        { name: 'Services', view: 'services' as const },
-        { name: 'Case Studies', view: 'industries' as const },
-        { name: 'Success Stories', view: 'success-stories' as const },
-        { name: 'Blogs', view: 'blogs' as const },
-        { name: 'About Us', view: 'about' as const },
-        { name: 'Contact Us', view: 'contact' as const },
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Case Studies', path: '/case-studies' },
+        { name: 'Success Stories', path: '/success-stories' },
+        { name: 'Blogs', path: '/blog' },
+        { name: 'About Us', path: '/about' },
+        { name: 'Contact Us', path: '/contact' },
     ];
-
-    const handleNavClick = (item: { name: string; view?: 'home' | 'industries' | 'services' | 'success-stories' | 'about' | 'contact' | 'blogs'; href?: string }) => {
-        if (item.view) {
-            onViewChange(item.view);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else if (item.href) {
-            if (currentView !== 'home') {
-                onViewChange('home');
-                // Small delay to allow home to render before scrolling
-                setTimeout(() => {
-                    const el = document.querySelector(item.href!);
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
-            } else {
-                const el = document.querySelector(item.href!);
-                el?.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    };
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 md:px-12 backdrop-blur-md bg-white/80 border-b border-gray-100">
@@ -42,7 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 className="cursor-pointer"
-                onClick={() => handleNavClick({ name: 'Home', view: 'home' })}
+                onClick={() => navigate('/')}
             >
                 <img
                     src="/assets/zartek-logo.png"
@@ -53,24 +32,29 @@ const Navbar: React.FC<NavbarProps> = ({ currentView, onViewChange }) => {
 
             <div className="hidden md:flex items-center gap-8">
                 {navItems.map((item, index) => (
-                    <motion.button
+                    <motion.div
                         key={item.name}
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 * index }}
-                        onClick={() => handleNavClick(item)}
-                        className={`text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${(item.view && currentView === item.view) ? 'text-black' : 'text-slate-400 hover:text-slate-900'
-                            }`}
                     >
-                        {item.name}
-                    </motion.button>
+                        <NavLink
+                            to={item.path}
+                            className={({ isActive }: { isActive: boolean }) =>
+                                `text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${isActive ? 'text-black' : 'text-slate-400 hover:text-slate-900'
+                                }`
+                            }
+                        >
+                            {item.name}
+                        </NavLink>
+                    </motion.div>
                 ))}
             </div>
 
             <motion.button
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                onClick={() => handleNavClick({ name: 'Contact Us', view: 'contact' })}
+                onClick={() => navigate('/contact')}
                 className="px-6 py-2 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest hover:scale-105 transition-transform cursor-pointer"
             >
                 Start Your Journey

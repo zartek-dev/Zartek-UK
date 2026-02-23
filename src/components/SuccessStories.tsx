@@ -1,13 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
-interface SuccessStoriesProps {
-    onCaseStudyClick?: (slug: string) => void;
-}
-
-const SuccessStories: React.FC<SuccessStoriesProps> = ({ onCaseStudyClick }) => {
+const SuccessStories: React.FC = () => {
     const stories = [
+        {
+            client: "IndusGo",
+            industry: "Transportation & Logistics",
+            outcome: "85% Booking Automation",
+            desc: "AI WhatsApp Chatbot for end-to-end booking via text/voice in any language, supporting 12+ Indian languages.",
+            stat: "85%",
+            label: "Automation Rate",
+            slug: "indusgo"
+        },
         {
             client: "SurveySparrow",
             industry: "Experience Management",
@@ -104,12 +110,12 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({ onCaseStudyClick }) => 
                                     {story.desc}
                                 </p>
                                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
-                                    <button
-                                        onClick={() => onCaseStudyClick?.(story.slug)}
+                                    <Link
+                                        to={`/success-stories/${story.slug}`}
                                         className="text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
                                     >
                                         FULL CASE STUDY →
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

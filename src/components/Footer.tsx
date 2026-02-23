@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
     const navLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'Services', href: '#' },
-        { name: 'Industries', href: '#' },
-        { name: 'Success Stories', href: '#' },
-        { name: 'About Us', href: '#' },
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'Case Studies', path: '/case-studies' },
+        { name: 'Success Stories', path: '/success-stories' },
+        { name: 'About Us', path: '/about' },
     ];
 
     const industryLinks = [
@@ -68,9 +69,9 @@ const Footer: React.FC = () => {
                         <ul className="space-y-4">
                             {navLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a href={link.href} className="text-sm text-slate-500 hover:text-black transition-colors font-sans">
+                                    <Link to={link.path} className="text-sm text-slate-500 hover:text-black transition-colors font-sans">
                                         {link.name}
-                                    </a>
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -100,9 +101,9 @@ const Footer: React.FC = () => {
                             </p>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <button className="w-full py-4 bg-black text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform cursor-pointer shadow-lg shadow-black/5">
+                            <Link to="/contact" className="w-full py-4 bg-black text-white rounded-xl text-[10px] font-bold uppercase tracking-widest hover:scale-[1.02] transition-transform cursor-pointer shadow-lg shadow-black/5 text-center">
                                 Book A Consultation
-                            </button>
+                            </Link>
                             <a href="mailto:hello@zartek.co.uk" className="text-sm font-medium text-slate-900 hover:underline underline-offset-4 decoration-slate-200">
                                 hello@zartek.co.uk
                             </a>

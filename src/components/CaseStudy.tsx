@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const CaseStudy: React.FC = () => {
     return (
@@ -37,13 +38,13 @@ const CaseStudy: React.FC = () => {
                             We transformed the vehicle rental experience by integrating an intelligent chat interface.
                             Users can now discover, verify, and book mobility services entirely through a conversational flow.
                         </p>
-                        <motion.button
-                            whileHover={{ x: 10 }}
+                        <Link
+                            to="/success-stories"
                             className="flex items-center gap-3 text-slate-900 font-bold text-lg group cursor-pointer"
                         >
                             Read Full Case Study
                             <span className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-xl transition-transform group-hover:scale-110">→</span>
-                        </motion.button>
+                        </Link>
                     </motion.div>
                 </div>
             </div>
