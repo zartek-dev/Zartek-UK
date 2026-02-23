@@ -8,38 +8,51 @@ const SuccessStories: React.FC = () => {
         {
             client: "IndusGo",
             industry: "Transportation & Logistics",
-            outcome: "85% Booking Automation",
-            desc: "AI WhatsApp Chatbot for end-to-end booking via text/voice in any language, supporting 12+ Indian languages.",
+            desc: "WhatsApp AI Chatbot with voice clip support for end-to-end booking, redefining self-drive car rentals with a seamless, hyper-local mobility platform serving millions of users across India.",
             stat: "85%",
             label: "Automation Rate",
-            slug: "indusgo"
+            slug: "indusgo",
+            image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80"
         },
         {
-            client: "SurveySparrow",
-            industry: "Experience Management",
-            outcome: "40% Higher Completion",
-            desc: "Optimized mobile experience and neural routing for feedback loops, resulting in a significant increase in user engagement and completion rates.",
-            stat: "40%",
-            label: "Higher Completion",
-            slug: "surveysparrow"
+            client: "Pharmazon",
+            industry: "Healthcare Supply Chain",
+            desc: "A regulatory-compliant pharmaceutical supply chain platform streamlining medicine distribution for UK healthcare providers.",
+            stat: "3x",
+            label: "Faster Distribution",
+            slug: "pharmazon",
+            image: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80"
         },
         {
-            client: "FinTrack AI",
-            industry: "FinTech",
-            outcome: "99.9% Fraud Accuracy",
-            desc: "Implementation of real-time anomaly detection layers that identify fraudulent patterns before transaction finalization.",
-            stat: "99.9%",
-            label: "Detection Rate",
-            slug: "fintrack"
+            client: "GenOCR",
+            industry: "Enterprise Finance",
+            desc: "Leveraging advanced deep learning to automate high-volume document extraction with 99% accuracy for enterprise finance.",
+            stat: "99%",
+            label: "Accuracy",
+            slug: "genocr",
+            image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80"
         },
         {
-            client: "HealthSync",
-            industry: "HealthTech",
-            outcome: "2.4x Faster Triage",
-            desc: "Automated patient data processing and predictive diagnostics triage, allowing medical staff to focus on critical cases instantly.",
-            stat: "2.4x",
-            label: "Faster Triage",
-            slug: "healthsync"
+            client: "HMA",
+            industry: "Global Consulting",
+            desc: "Strategic digital transformation for global enterprise consulting, integrating multi-cloud architecture and real-time analytics.",
+            stat: "85%",
+            label: "Time Saved",
+            slug: "hma",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80"
+        }
+    ];
+
+    const testimonials = [
+        {
+            quote: "Zartek didn't just build an app; they engineered a core business solution that scaled with our explosive growth. Their technical precision is unmatched in the industry.",
+            author: "Thomas Wright",
+            role: "CEO, IndusGo"
+        },
+        {
+            quote: "The GenOCR implementation reduced our manual processing time by 85% within the first quarter.",
+            author: "Sarah Miller",
+            role: "COO, HMA"
         }
     ];
 
@@ -49,6 +62,7 @@ const SuccessStories: React.FC = () => {
                 <title>Success Stories & Impact | Zartek UK</title>
                 <meta name="description" content="Discover how Zartek UK has helped enterprises achieve verifiable results through custom AI development and strategic consultation." />
             </Helmet>
+
             {/* Background Materials */}
             <div className="fixed inset-0 pointer-events-none">
                 <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-slate-100 blur-[120px] rounded-full" />
@@ -84,8 +98,8 @@ const SuccessStories: React.FC = () => {
                     </motion.p>
                 </div>
 
-                {/* Grid of Stories / Liquid Glass Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {/* 2x2 Grid of Stories */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-32">
                     {stories.map((story, i) => (
                         <motion.div
                             key={i}
@@ -93,28 +107,40 @@ const SuccessStories: React.FC = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1, type: "spring", damping: 20 }}
-                            className="group relative p-8 rounded-[2.5rem] bg-slate-50/50 border border-slate-100 backdrop-blur-2xl hover:bg-slate-50 transition-all hover:border-black/10 overflow-hidden"
+                            className="group relative flex flex-col bg-slate-50 border border-slate-100 rounded-[2.5rem] overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500"
                         >
-                            <div className="relative z-10 flex flex-col h-full">
-                                <div className="flex justify-between items-start mb-8">
+                            <div className="relative w-full aspect-video overflow-hidden bg-slate-100">
+                                <img
+                                    src={story.image}
+                                    alt={`${story.client} Case Study`}
+                                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+
+                            <div className="relative z-10 flex flex-col flex-grow p-10 bg-white">
+                                <div className="flex justify-between items-start mb-6">
                                     <div>
                                         <h3 className="text-2xl font-bold tracking-tight text-slate-900">{story.client}</h3>
                                         <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mt-1">{story.industry}</p>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-4xl font-black tracking-tighter text-slate-200 group-hover:text-black transition-colors">{story.stat}</div>
-                                        <div className="text-[8px] font-bold uppercase tracking-widest text-slate-300">{story.label}</div>
+                                        <div className="text-3xl font-black tracking-tighter text-slate-900 group-hover:text-black transition-colors">{story.stat}</div>
+                                        <div className="text-[8px] font-bold uppercase tracking-widest text-slate-400">{story.label}</div>
                                     </div>
                                 </div>
-                                <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-grow">
+                                <p className="text-slate-600 text-sm leading-relaxed mb-8 flex-grow font-light">
                                     {story.desc}
                                 </p>
                                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
                                     <Link
                                         to={`/success-stories/${story.slug}`}
-                                        className="text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
+                                        className="inline-flex items-center gap-2 text-[10px] font-bold tracking-widest text-slate-400 group-hover:text-black transition-colors cursor-pointer"
                                     >
-                                        FULL CASE STUDY →
+                                        VIEW CASE STUDY
+                                        <svg className="w-3 h-3 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        </svg>
                                     </Link>
                                 </div>
                             </div>
@@ -122,25 +148,42 @@ const SuccessStories: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Quote Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-40 p-16 rounded-[4rem] bg-slate-50 border border-slate-100 backdrop-blur-3xl text-center relative overflow-hidden"
-                >
-                    <div className="relative z-10 max-w-4xl mx-auto">
-                        <div className="text-6xl text-slate-100 font-black mb-8 leading-none">“</div>
-                        <p className="text-3xl md:text-5xl font-light tracking-tight leading-tight text-slate-900 mb-12 italic">
-                            Zartek UK didn’t just give us a tool; they gave us a <span className="text-black font-medium">neural competitive advantage</span>.
-                        </p>
-                        <div className="flex flex-col items-center">
-                            <div className="w-12 h-12 rounded-full bg-slate-900 mb-4" />
-                            <h4 className="font-bold text-lg text-slate-900">Alex Rutherford</h4>
-                            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">CTO, Global Logistics Group</p>
-                        </div>
-                    </div>
-                </motion.div>
+                {/* Voices of Impact - Testimonials */}
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight text-slate-900 mb-4">
+                        Voices of Impact
+                    </h2>
+                    <p className="text-slate-500 font-light">Direct insights from our enterprise partners.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {testimonials.map((t, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.2 }}
+                            className="p-10 rounded-[3rem] bg-slate-50/80 border border-slate-100 backdrop-blur-2xl flex flex-col justify-between"
+                        >
+                            <div>
+                                <div className="text-5xl text-slate-200 font-black mb-6 leading-none">“</div>
+                                <p className="text-xl md:text-2xl font-light tracking-tight leading-relaxed text-slate-800 mb-8 italic">
+                                    {t.quote}
+                                </p>
+                            </div>
+                            <div className="flex items-center gap-4">
+                                <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+                                    <div className="w-full h-full bg-slate-900" />
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-sm text-slate-900">{t.author}</h4>
+                                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{t.role}</p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </main>
         </div>
     );
