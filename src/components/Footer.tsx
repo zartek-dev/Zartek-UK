@@ -19,11 +19,7 @@ const Footer: React.FC = () => {
         { name: 'Manufacturing', href: '#' },
     ];
 
-    const socialLinks = [
-        { name: 'LinkedIn', href: '#' },
-        { name: 'Twitter', href: '#' },
-        { name: 'Clutch', href: '#' },
-    ];
+
 
     return (
         <motion.footer
