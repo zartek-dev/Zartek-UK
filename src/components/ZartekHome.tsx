@@ -17,7 +17,7 @@ const ZartekHome: React.FC<ZartekHomeProps> = () => {
         "name": "Zartek UK",
         "image": "https://zartek.co.uk/logo.png",
         "url": "https://zartek.co.uk",
-        "telephone": "+44 20 7946 0000",
+        "telephone": "+12265260282",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "80-82 Curtain Rd, Shoreditch",
