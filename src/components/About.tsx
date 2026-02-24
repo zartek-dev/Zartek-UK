@@ -81,10 +81,10 @@ const About: React.FC<AboutProps> = () => {
                             className="max-w-3xl space-y-6 text-xl text-slate-600 font-light leading-relaxed"
                         >
                             <p>
-                                Founded by a collective of ex-FAANG engineers and global strategy consultants, Zartek was born from a simple observation: UK enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
+                                Founded by a collective of ex-FAANG engineers and global strategy consultants, Zartek was born from a simple observation: Enterprises have the data, but often lack the specialized roadmap to leverage generative AI effectively.
                             </p>
                             <p>
-                                We aren't just a dev shop. We are your local partners in digital transformation. From our headquarters in Shoreditch, we work intimately with FTSE 100 companies and high-growth startups to deploy AI that is ethical, explainable, and exceptionally powerful.
+                                We aren't just a dev shop. We are your global partners in digital transformation. From our strategic offices in India, Canada, and Qatar, we work intimately with Fortune 500 companies and high-growth startups to deploy AI that is ethical, explainable, and exceptionally powerful.
                             </p>
                         </motion.div>
                     </div>
@@ -119,7 +119,7 @@ const About: React.FC<AboutProps> = () => {
                         <div className="relative z-10 text-center max-w-3xl mx-auto">
                             <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to Build the Future?</h2>
                             <p className="text-white/60 text-lg mb-10">
-                                Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is down to guide you through the AI landscape.
+                                Whether you're a startup looking to scale or an enterprise aiming to optimize, our team is here to guide you through the AI landscape.
                             </p>
                             <Link
                                 to="/contact"

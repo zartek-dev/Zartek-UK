@@ -203,11 +203,9 @@ const Contact: React.FC = () => {
                             </div>
                         </motion.div>
                     </div>
-
                 </div>
+            </main>
         </div>
-            </main >
-        </div >
     );
 };
 
